@@ -1152,234 +1152,259 @@
            TABLET & MOBILE
         ========================= */
 
-        @media (max-width: 900px) {
+@media (max-width: 900px) {
 
-            .page {
+    .page {
+        width: 100%;
+        margin: 0;
+    }
 
-                width: 100%;
 
-                margin: 0;
+    nav {
+        height: 68px;
+        padding: 0 22px;
+    }
 
-            }
 
+    .links {
+        display: none;
+    }
 
-            nav {
 
-                height: 68px;
+    .start {
+        font-size: 12px;
+    }
 
-                padding: 0 22px;
 
-            }
+    /* HERO */
 
+    .hero {
 
-            .links {
+        min-height: auto;
 
-                display: none;
+        display: flex;
 
-            }
+        flex-direction: column;
 
+        padding-bottom: 105px;
 
-            .start {
+    }
 
-                font-size: 12px;
 
-            }
+    .hero-copy {
 
+        position: relative;
 
-            .hero {
+        width: 100%;
 
-                min-height: 820px;
+        padding: 50px 25px 0;
 
-            }
+        z-index: 2;
 
+    }
 
-            .hero-copy {
 
-                width: 100%;
+    .hero h1 {
 
-                padding: 50px 25px 0;
+        font-size: clamp(48px, 11vw, 70px);
 
-                z-index: 4;
+        letter-spacing: -3px;
 
-            }
+    }
 
 
-            .hero h1 {
+    .hero-sub {
 
-                font-size: clamp(48px, 11vw, 70px);
+        max-width: 100%;
 
-                letter-spacing: -3px;
+        font-size: 16px;
 
-            }
+        line-height: 1.6;
 
+        display: -webkit-box;
 
-            .hero-sub {
+        -webkit-line-clamp: 5;
 
-                max-width: 100%;
+        -webkit-box-orient: vertical;
 
-                font-size: 16px;
+        overflow: hidden;
 
-                line-height: 1.6;
+    }
 
-                display: -webkit-box;
 
-                -webkit-line-clamp: 5;
+    /* PROFILE IMAGE - BUTTON এর নিচে থাকবে */
 
-                -webkit-box-orient: vertical;
+    .hero-portrait {
 
-                overflow: hidden;
+        position: relative;
 
-            }
+        top: auto;
 
+        left: auto;
 
-            .hero-portrait {
+        right: auto;
 
-                top: auto;
+        bottom: auto;
 
-                left: 0;
+        width: 100%;
 
-                right: 0;
+        height: 430px;
 
-                bottom: 105px;
+        margin-top: 30px;
 
-                height: 430px;
+        overflow: hidden;
 
-            }
+        z-index: 1;
 
+    }
 
-            .hero-portrait img {
 
-                object-position: center top;
+    .hero-portrait img {
 
-            }
+        width: 100%;
 
+        height: 100%;
 
-            .hero-portrait::after {
+        display: block;
 
-                background: linear-gradient(
-                    180deg,
-                    var(--bg) 0%,
-                    rgba(232, 227, 220, .45) 20%,
-                    rgba(232, 227, 220, 0) 55%
-                );
+        object-fit: cover;
 
-            }
+        object-position: center top;
 
+    }
 
-            .availability {
 
-                left: 25px;
+    .availability {
 
-                bottom: 125px;
+        left: 25px;
 
-                font-size: 12px;
+        bottom: 125px;
 
-            }
+        font-size: 12px;
 
+        z-index: 5;
 
-            .stats {
+    }
 
-                width: 100%;
 
-                height: 105px;
+    .stats {
 
-            }
+        width: 100%;
 
+        height: 105px;
 
-            section {
+    }
 
-                padding: 70px 25px;
 
-            }
+    section {
 
+        padding: 70px 25px;
 
-            h2 {
+    }
 
-                letter-spacing: -2px;
 
-            }
+    h2 {
 
+        letter-spacing: -2px;
 
-            .section-head {
+    }
 
-                flex-direction: column;
 
-                align-items: flex-start;
+    .section-head {
 
-            }
+        flex-direction: column;
 
+        align-items: flex-start;
 
-            .about {
+    }
 
-                grid-template-columns: 1fr;
 
-                gap: 35px;
+    .about {
 
-            }
+        grid-template-columns: 1fr;
 
+        gap: 35px;
 
-            .skills-grid {
+    }
 
-                grid-template-columns: repeat(2, 1fr);
 
-            }
+    .skills-grid {
 
+        grid-template-columns: repeat(2, 1fr);
 
-            .portfolio-grid {
+    }
 
-                grid-template-columns: 1fr;
 
-            }
+    .portfolio-grid {
 
+        grid-template-columns: 1fr;
 
-            .project {
+    }
 
-                height: 330px;
 
-            }
+    .project {
 
+        height: 330px;
 
-            footer {
+    }
 
-                padding: 25px;
 
-                flex-direction: column;
+    footer {
 
-            }
+        padding: 25px;
 
+        flex-direction: column;
 
-            .modal-content {
+    }
 
-                grid-template-columns: 1fr;
 
-                max-height: 92vh;
+    .modal-content {
 
-            }
+        grid-template-columns: 1fr;
 
+        max-height: 92vh;
 
-            .modal-image {
+    }
 
-                height: 330px;
 
-                min-height: 330px;
+    .modal-image {
 
-            }
+        height: 330px;
 
+        min-height: 330px;
 
-            .modal-text {
+    }
 
-                padding: 35px 25px;
 
-            }
+    .modal-text {
 
-        }
+        padding: 35px 25px;
+
+    }
+
+}
 
 
         /* =========================
            SMALL MOBILE
         ========================= */
 
-        @media (max-width: 560px) {
+        .hero-portrait {
+
+    height: 400px;
+
+    margin-top: 25px;
+
+}
+
+
+.hero-portrait img {
+
+    object-fit: cover;
+
+    object-position: center top;
+
+} {
 
             .hero {
 
