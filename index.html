@@ -1145,36 +1145,33 @@
 
         }
 /* =========================
-   PC PROFILE IMAGE FIX
+   PC ONLY — 1101px+
 ========================= */
-
 @media (min-width: 1101px) {
 
-    /* PC FULL SCREEN */
     .page {
         width: 100%;
         max-width: none;
         margin: 0;
     }
 
-    /* PC PROFILE IMAGE */
     .hero-portrait {
-        left: 58%;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        height: auto;
-        overflow: hidden;
+        left: 62% !important;
+        right: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        height: auto !important;
+        margin-top: 0 !important;
+        overflow: hidden !important;
     }
 
     .hero-portrait img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: cover;
-        object-position: center top;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+        object-position: right top !important;
+        display: block !important;
     }
-
 }
         /* =========================
            TABLET & MOBILE
