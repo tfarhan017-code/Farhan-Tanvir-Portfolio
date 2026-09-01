@@ -1555,37 +1555,45 @@
         object-position: center top;
     }
 }
-.facebook-arrow {
-    width: 100px;
-    height: 50px;
+/* =========================
+   FACEBOOK INFO STROKE
+   ========================= */
 
-    margin-left: 45%;
-    margin-top: 5px;
-    margin-bottom: -15px;
+.facebook-note {
+    display: block;
+    width: fit-content;
+    max-width: 90%;
+    margin: 35px auto 30px;
 
-    font-size: 35px;
+    padding: 14px 28px;
 
-    transform: rotate(25deg);
+    border: 1px solid rgba(30, 30, 30, 0.45);
+    border-radius: 12px;
 
-    animation: facebookArrowMove 1.5s ease-in-out infinite;
+    box-sizing: border-box;
 }
 
-@keyframes facebookArrowMove {
 
-    0% {
-        transform: rotate(25deg) translateY(-5px);
-        opacity: 0.3;
-    }
+/* =========================
+   FACEBOOK LINK STROKE
+   ========================= */
 
-    50% {
-        transform: rotate(25deg) translateY(5px);
-        opacity: 1;
-    }
+.facebook-link {
+    display: inline-block;
 
-    100% {
-        transform: rotate(25deg) translateY(-5px);
-        opacity: 0.3;
-    }
+    padding: 8px 16px;
+
+    border: 1px solid rgba(30, 30, 30, 0.45);
+    border-radius: 10px;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Hover effect */
+.facebook-link:hover {
+    transform: translateY(-2px);
+    border-color: #111;
 }
     </style>
 
