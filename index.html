@@ -1559,75 +1559,83 @@
    FACEBOOK CURVED ARROW
    ========================= */
 
-.facebook-link {
+.contact {
+    position: relative;
+    overflow: visible !important;
+}
+
+.facebook-note {
     position: relative;
 }
 
 
-/* Curved arrow */
-.facebook-arrow {
-    position: absolute;
-
-    width: 180px;
-    height: 90px;
-
-    left: -115px;
-    top: -78px;
-
-    overflow: visible;
-
-    pointer-events: none;
-
-    z-index: 10;
+/* Facebook link */
+.facebook-link {
+    position: relative;
+    display: inline-block;
 }
 
 
-/* Moving dashed line */
-.facebook-arrow path:first-child {
-    animation: facebookArrowFlow 2s linear infinite;
+/* Curved arrow */
+.facebook-link::before {
+    content: "";
+    position: absolute;
+
+    width: 170px;
+    height: 85px;
+
+    left: -155px;
+    top: -105px;
+
+    border-top: 3px dashed currentColor;
+    border-right: 3px dashed currentColor;
+
+    border-radius: 50%;
+
+    transform: rotate(18deg);
+
+    opacity: 0.55;
+
+    pointer-events: none;
 }
 
 
 /* Arrow head */
-.facebook-arrow path:last-child {
-    animation: facebookArrowPulse 2s ease-in-out infinite;
+.facebook-link::after {
+    content: "↘";
+
+    position: absolute;
+
+    left: -2px;
+    top: -48px;
+
+    font-size: 24px;
+    font-weight: 600;
+
+    opacity: 0.7;
+
+    pointer-events: none;
+
+    animation: facebookArrowBounce 1.5s ease-in-out infinite;
 }
 
 
-@keyframes facebookArrowFlow {
+/* Motion */
+@keyframes facebookArrowBounce {
 
     0% {
-        stroke-dashoffset: 0;
-        opacity: 0.25;
-    }
-
-    30% {
-        opacity: 0.8;
-    }
-
-    70% {
-        opacity: 0.8;
-    }
-
-    100% {
-        stroke-dashoffset: -28;
-        opacity: 0.25;
-    }
-}
-
-
-@keyframes facebookArrowPulse {
-
-    0% {
-        opacity: 0.3;
+        transform: translate(0, -3px);
+        opacity: 0.4;
     }
 
     50% {
+        transform: translate(3px, 3px);
         opacity: 1;
     }
 
     100% {
-        opacity: 0.3;
+        transform: translate(0, -3px);
+        opacity: 0.4;
     }
 }
     </style>
@@ -2170,37 +2178,27 @@
      CONTACT
 ========================= -->
 
-<div class="social-area">
+<section class="contact" id="contact">
 
-    <!-- Animated Curved Arrow -->
-    <svg class="facebook-arrow"
-         viewBox="0 0 600 150"
-         xmlns="http://www.w3.org/2000/svg">
+    <p class="kicker">
+        Have a project in mind?
+    </p>
 
-        <path
-            class="arrow-path"
-            d="M 110 15
-               C 210 0, 300 10, 335 45
-               C 380 90, 425 105, 470 130"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-dasharray="8 8"
-        />
+    <h2>
+        Let's create something amazing together.
+    </h2>
 
-        <path
-            class="arrow-head"
-            d="M 456 120 L 470 130 L 455 138"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        />
+    <p class="facebook-note">
+        “Explore more of my projects and creative work by
+        clicking the Facebook link below.”
+    </p>
 
-    </svg>
+    <a class="contact-btn"
+       href="mailto:tfarhan017@email.com">
 
+        Email Me ↗
+
+    </a>
 
     <div class="social-links">
 
@@ -2220,38 +2218,10 @@
         </a>
 
         <a class="facebook-link"
-    href="https://www.facebook.com/creativedesigninfo1"
-    target="_blank">
-
-    Facebook
-
-    <svg class="facebook-arrow"
-         viewBox="0 0 180 90"
-         xmlns="http://www.w3.org/2000/svg">
-
-        <path
-            d="M 5 8
-               C 45 0, 95 15, 120 42
-               C 135 58, 145 68, 160 76"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-dasharray="7 7"
-        />
-
-        <path
-            d="M 148 68 L 160 76 L 147 82"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        />
-
-    </svg>
-
-</a>
+           href="https://www.facebook.com/creativedesigninfo1"
+           target="_blank">
+            Facebook
+        </a>
 
         <a href="https://www.instagram.com/ftanvir3560/"
            target="_blank">
@@ -2260,7 +2230,6 @@
 
     </div>
 
-</div>
 </section>
 
 
