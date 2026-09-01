@@ -1559,151 +1559,76 @@
    FACEBOOK CURVED ARROW
    ========================= */
 
-.social-area {
+.facebook-link {
     position: relative;
-    width: 100%;
-    margin-top: 5px;
 }
 
 
-/* Arrow */
+/* Curved arrow */
 .facebook-arrow {
     position: absolute;
 
-    width: 600px;
-    height: 150px;
+    width: 180px;
+    height: 90px;
 
-    left: 50%;
-    top: -95px;
+    left: -115px;
+    top: -78px;
 
-    transform: translateX(-50%);
-
-    pointer-events: none;
     overflow: visible;
 
-    z-index: 5;
+    pointer-events: none;
+
+    z-index: 10;
 }
 
 
 /* Moving dashed line */
-.arrow-path {
-    animation: arrowFlow 2.4s linear infinite;
+.facebook-arrow path:first-child {
+    animation: facebookArrowFlow 2s linear infinite;
 }
 
 
 /* Arrow head */
-.arrow-head {
-    animation: arrowPulse 2.4s ease-in-out infinite;
+.facebook-arrow path:last-child {
+    animation: facebookArrowPulse 2s ease-in-out infinite;
 }
 
 
-/* Moving dashed effect */
-@keyframes arrowFlow {
+@keyframes facebookArrowFlow {
 
     0% {
         stroke-dashoffset: 0;
         opacity: 0.25;
     }
 
-    20% {
-        opacity: 0.75;
+    30% {
+        opacity: 0.8;
     }
 
     70% {
-        opacity: 0.75;
+        opacity: 0.8;
     }
 
     100% {
-        stroke-dashoffset: -32;
+        stroke-dashoffset: -28;
         opacity: 0.25;
     }
 }
 
 
-/* Arrow head */
-@keyframes arrowPulse {
+@keyframes facebookArrowPulse {
 
     0% {
-        opacity: 0.25;
-        transform: translate(0, 0);
+        opacity: 0.3;
     }
 
     50% {
         opacity: 1;
-        transform: translate(3px, 3px);
     }
 
     100% {
-        opacity: 0.25;
-        transform: translate(0, 0);
+        opacity: 0.3;
     }
-}
-
-
-/* Mobile */
-@media (max-width: 600px) {
-
-    .facebook-arrow {
-        width: 420px;
-        height: 130px;
-
-        top: -80px;
-    }
-
-}
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media (max-width: 600px) {
-
-    .facebook-note-area {
-        height: 140px;
-    }
-
-    .facebook-arrow {
-        width: 340px;
-        height: 140px;
-
-        top: 60px;
-    }
-
-}
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media (max-width: 600px) {
-
-    .facebook-note-area {
-        height: 140px;
-    }
-
-    .facebook-arrow {
-        width: 340px;
-        height: 140px;
-
-        top: 60px;
-    }
-
-}
-
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media (max-width: 600px) {
-
-    .facebook-arrow {
-        width: 380px;
-        height: 150px;
-
-        top: 65px;
-    }
-
 }
     </style>
 
@@ -2295,10 +2220,38 @@
         </a>
 
         <a class="facebook-link"
-           href="https://www.facebook.com/creativedesigninfo1"
-           target="_blank">
-            Facebook
-        </a>
+    href="https://www.facebook.com/creativedesigninfo1"
+    target="_blank">
+
+    Facebook
+
+    <svg class="facebook-arrow"
+         viewBox="0 0 180 90"
+         xmlns="http://www.w3.org/2000/svg">
+
+        <path
+            d="M 5 8
+               C 45 0, 95 15, 120 42
+               C 135 58, 145 68, 160 76"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-dasharray="7 7"
+        />
+
+        <path
+            d="M 148 68 L 160 76 L 147 82"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+
+    </svg>
+
+</a>
 
         <a href="https://www.instagram.com/ftanvir3560/"
            target="_blank">
