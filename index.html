@@ -211,15 +211,28 @@
             font-weight: 700;
         }
 
-        /* PROFILE IMAGE */
+        /* PROFILE IMAGE - ENHANCED NEON & TILT */
         .hero-portrait {
             position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 48%;
-            z-index: 1;
+            top: 5%;
+            right: 4%;
+            bottom: 5%;
+            left: 52%;
+            z-index: 2;
             overflow: hidden;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 243, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.2), inset 0 0 15px rgba(0, 243, 255, 0.15);
+            background: rgba(0, 0, 0, 0.05);
+            transition: transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            will-change: transform;
+        }
+
+        .hero-portrait:hover {
+            border-color: rgba(0, 243, 255, 0.8);
+            box-shadow: 0 0 35px rgba(0, 243, 255, 0.5), inset 0 0 20px rgba(0, 243, 255, 0.3);
         }
 
         .hero-portrait img {
@@ -227,6 +240,9 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
+            pointer-events: none;
+            transition: transform 0.3s ease-out;
+            transform: translateZ(20px);
         }
 
         .hero-portrait::after {
@@ -237,9 +253,8 @@
             background: linear-gradient(
                 90deg,
                 var(--bg) 0%,
-                rgba(232, 227, 220, .65) 8%,
-                rgba(232, 227, 220, .18) 28%,
-                rgba(232, 227, 220, 0) 50%
+                rgba(232, 227, 220, .4) 10%,
+                rgba(232, 227, 220, 0) 40%
             );
         }
 
@@ -704,7 +719,7 @@
                 letter-spacing: -4px;
             }
             .hero-portrait {
-                left: 45%;
+                left: 48%;
             }
             .availability {
                 left: 55px;
@@ -727,10 +742,10 @@
                 margin: 0;
             }
             .hero-portrait {
-                left: 62% !important;
-                right: 0 !important;
-                top: 0 !important;
-                bottom: 0 !important;
+                left: 58% !important;
+                right: 3% !important;
+                top: 5% !important;
+                bottom: 8% !important;
                 height: auto !important;
                 margin-top: 0 !important;
                 overflow: hidden !important;
@@ -738,8 +753,8 @@
             .hero-portrait img {
                 width: 100% !important;
                 height: 100% !important;
-                object-fit: contain !important;
-                object-position: right top !important;
+                object-fit: cover !important;
+                object-position: center top !important;
                 display: block !important;
             }
         }
@@ -796,9 +811,9 @@
                 left: auto;
                 right: auto;
                 bottom: auto;
-                width: 100%;
+                width: calc(100% - 50px);
+                margin: 30px auto 0;
                 height: 430px;
-                margin-top: 30px;
                 overflow: hidden;
                 z-index: 1;
             }
@@ -942,7 +957,8 @@
                     </div>
                 </div>
 
-                <div class="hero-portrait">
+                <!-- HERO PORTRAIT WITH 3D TILT & NEON EFFECTS -->
+                <div class="hero-portrait tilt-card">
                     <img src="profile.JPG" alt="Farhan Tanvir">
                 </div>
 
@@ -1071,7 +1087,6 @@
                         </div>
                     </div>
 
-                    <!-- PROJECT 6 ADDED WITH PROJECT6.JPG -->
                     <div class="project tilt-card" onclick="openProject('project6')">
                         <img src="project6.jpg" alt="Motion Visuals Project">
                         <div class="project-info">
@@ -1163,7 +1178,7 @@
         renderCursor();
 
         // Hover Effect on Interactive Elements
-        const interactiveElements = document.querySelectorAll('a, button, .project, .skill, .service');
+        const interactiveElements = document.querySelectorAll('a, button, .project, .skill, .service, .hero-portrait');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 dot.style.width = '16px';
@@ -1249,7 +1264,7 @@
         handleParticles();
 
         /* =========================================================
-           3. 3D MOUSE HOVER TILT EFFECT
+           3. 3D MOUSE HOVER TILT EFFECT & HERO PORTRAIT LIGHTING
         ========================================================= */
         const tiltCards = document.querySelectorAll('.tilt-card');
         tiltCards.forEach(card => {
@@ -1264,15 +1279,25 @@
                 const rotateY = ((x - centerX) / centerX) * 12;
 
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+
+                // Dynamic mouse-following glowing border for Hero Portrait
+                if(card.classList.contains('hero-portrait')) {
+                    const glowX = (x / rect.width) * 100;
+                    const glowY = (y / rect.height) * 100;
+                    card.style.boxShadow = `${(x - centerX)/10}px ${(y - centerY)/10}px 30px rgba(0, 243, 255, 0.45), inset 0 0 20px rgba(0, 243, 255, 0.25)`;
+                }
             });
 
             card.addEventListener('mouseleave', () => {
                 card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                if(card.classList.contains('hero-portrait')) {
+                    card.style.boxShadow = `0 0 20px rgba(0, 243, 255, 0.2), inset 0 0 15px rgba(0, 243, 255, 0.15)`;
+                }
             });
         });
 
         /* =========================================================
-           4. PORTFOLIO MODAL LOGIC (INCLUDES PROJECT 6)
+           4. PORTFOLIO MODAL LOGIC
         ========================================================= */
         const projectsData = {
             project1: {
@@ -1281,7 +1306,7 @@
                 image: "project1.jpg",
                 description: "A comprehensive brand and editorial design concept focused on enhancing reading experiences through visual aesthetic balance.",
                 client: "Creative Studio Co.",
-                role: "Lead Theame Designer"
+                role: "Lead Theme Designer"
             },
             project2: {
                 title: "Visual Stories",
@@ -1312,7 +1337,7 @@
                 category: "AI Tool",
                 image: "project5.jpg",
                 description: "Interface design and visual asset creation for an AI-driven public speaking rehearsal application.",
-                client: "BD Degital Market",
+                client: "BD Digital Market",
                 role: "UI/Visual Designer"
             },
             project6: {
