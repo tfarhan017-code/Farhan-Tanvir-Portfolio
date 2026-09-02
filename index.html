@@ -13,7 +13,7 @@
 
     <style>
         /* =========================
-           ROOT
+           ROOT VARIABLES
         ========================= */
         :root {
             --bg: #e8e3dc;
@@ -25,7 +25,7 @@
         }
 
         /* =========================
-           RESET
+           RESET & BASE STYLES
         ========================= */
         * {
             margin: 0;
@@ -106,7 +106,7 @@
         }
 
         /* =========================
-           MAIN PAGE
+           MAIN PAGE LAYOUT
         ========================= */
         .page {
             width: min(1350px, calc(100% - 40px));
@@ -157,7 +157,7 @@
         }
 
         /* =========================
-           HERO
+           HERO SECTION
         ========================= */
         .hero {
             min-height: 720px;
@@ -222,13 +222,7 @@
             overflow: hidden;
         }
 
-        .hero-image {
-            width: 100%;
-            aspect-ratio: 4 / 5;
-            overflow: hidden;
-        }
-
-        .hero-image img {
+        .hero-portrait img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -249,7 +243,7 @@
             );
         }
 
-        /* AVAILABLE */
+        /* AVAILABILITY BADGE */
         .availability {
             position: absolute;
             z-index: 5;
@@ -272,7 +266,7 @@
             background: #19b533;
         }
 
-        /* STATS */
+        /* STATS BAR */
         .stats {
             position: absolute;
             z-index: 5;
@@ -340,7 +334,7 @@
         }
 
         /* =========================
-           ABOUT
+           ABOUT SECTION
         ========================= */
         .about {
             display: grid;
@@ -356,7 +350,7 @@
         }
 
         /* =========================
-           SKILLS
+           SKILLS SECTION
         ========================= */
         .skills-section {
             background: var(--bg);
@@ -387,7 +381,7 @@
         }
 
         /* =========================
-           SERVICES
+           SERVICES SECTION
         ========================= */
         .services {
             margin-top: 50px;
@@ -439,7 +433,7 @@
         }
 
         /* =========================
-           PORTFOLIO
+           PORTFOLIO SECTION
         ========================= */
         .portfolio {
             background: var(--dark);
@@ -504,7 +498,7 @@
         }
 
         /* =========================
-           CONTACT
+           CONTACT SECTION
         ========================= */
         .contact {
             text-align: center;
@@ -532,6 +526,30 @@
             border-radius: 9px;
             font-weight: 700;
             margin-top: 10px;
+        }
+
+        .facebook-note {
+            display: block;
+            width: fit-content;
+            max-width: 90%;
+            margin: 35px auto 30px;
+            padding: 14px 28px;
+            border: 1px solid rgba(30, 30, 30, 0.45);
+            border-radius: 12px;
+            box-sizing: border-box;
+        }
+
+        .facebook-link {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid rgba(30, 30, 30, 0.45);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .facebook-link:hover {
+            transform: translateY(-2px);
+            border-color: #111;
         }
 
         .social-links {
@@ -882,41 +900,16 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        /* FACEBOOK STYLES */
-        .facebook-note {
-            display: block;
-            width: fit-content;
-            max-width: 90%;
-            margin: 35px auto 30px;
-            padding: 14px 28px;
-            border: 1px solid rgba(30, 30, 30, 0.45);
-            border-radius: 12px;
-            box-sizing: border-box;
-        }
-
-        .facebook-link {
-            display: inline-block;
-            padding: 8px 16px;
-            border: 1px solid rgba(30, 30, 30, 0.45);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .facebook-link:hover {
-            transform: translateY(-2px);
-            border-color: #111;
-        }
     </style>
 </head>
 
 <body>
 
-    <!-- Neon Glowing Cursor Elements -->
+    <!-- NEON GLOWING CURSOR ELEMENTS -->
     <div class="cursor-dot"></div>
     <div class="cursor-ring"></div>
 
-    <!-- Particle Canvas -->
+    <!-- PARTICLE CANVAS -->
     <canvas id="particle-canvas"></canvas>
 
     <div class="page">
@@ -1076,13 +1069,15 @@
                             <small>AI Tool</small>
                             <h3>AI Smart Rehearse</h3>
                         </div>
-                        <div class="project tilt-card" onclick="openProject('project6')">
-    <img src="project6.jpg" alt="Social Media Branding">
-    <div class="project-info">
-        <small>Design</small>
-        <h3>Social Media Branding</h3>
-    </div>
-</div>
+                    </div>
+
+                    <!-- PROJECT 6 ADDED WITH PROJECT6.JPG -->
+                    <div class="project tilt-card" onclick="openProject('project6')">
+                        <img src="project6.jpg" alt="Motion Visuals Project">
+                        <div class="project-info">
+                            <small>Motion & Visuals</small>
+                            <h3>Motion Visuals</h3>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1277,7 +1272,7 @@
         });
 
         /* =========================================================
-           4. PORTFOLIO MODAL LOGIC
+           4. PORTFOLIO MODAL LOGIC (INCLUDES PROJECT 6)
         ========================================================= */
         const projectsData = {
             project1: {
@@ -1285,15 +1280,15 @@
                 category: "Graphic Design",
                 image: "project1.jpg",
                 description: "A comprehensive brand and editorial design concept focused on enhancing reading experiences through visual aesthetic balance.",
-                client: "Creative Design Co.",
-                role: "Lead Theame Designer"
+                client: "Read Mood Co.",
+                role: "Lead Graphic Designer"
             },
             project2: {
                 title: "Visual Stories",
                 category: "Motion & Video Editing",
                 image: "project2.jpg",
                 description: "Dynamic video editing project utilizing modern motion graphics, seamless transitions, and color grading for digital engagement.",
-                client: "Creative Agency",
+                client: "Media Agency",
                 role: "Motion Designer"
             },
             project3: {
@@ -1301,7 +1296,7 @@
                 category: "Branding",
                 image: "project3.jpg",
                 description: "Complete corporate branding package including logo design, color typography guidelines, and social media assets.",
-                client: "Creative Studio",
+                client: "Vanguard Studio",
                 role: "Brand Strategist & Designer"
             },
             project4: {
@@ -1309,25 +1304,25 @@
                 category: "Creative Content",
                 image: "project4.jpg",
                 description: "Multi-platform social media ad campaign focused on brand awareness and conversion optimization.",
-                client: "Local-Restro & cafe,Febric items,Cosmetic products,Gadget items,Book design",
-                role: "UI & motion designer"
+                client: "Apex Marketing",
+                role: "Visual Content Creator"
             },
             project5: {
                 title: "AI Smart Rehearse",
                 category: "AI Tool",
                 image: "project5.jpg",
                 description: "Interface design and visual asset creation for an AI-driven public speaking rehearsal application.",
-                client: "Creative Design Studio(BD)",
-                role: "UI/Visual Designer,Ai Rechearser"
-            }
+                client: "Tech Venturing",
+                role: "UI/Visual Designer"
+            },
             project6: {
-    title: "Social Media Branding",
-    category: "Design",
-    image: "project6.jpg",
-    description: "Modern social media designs crafted with creativity, consistency, and a strong visual identity.",
-    client: "Sparrow study abroad,Royal International Education,Bangladesh University,Headman Academy,Emam Hossain (Vlog),star it,",
-    role: "Graphic Designer"
-}
+                title: "Motion Visuals",
+                category: "Motion & Visuals",
+                image: "project6.jpg",
+                description: "Creative visual editing and video design crafted for modern digital platforms.",
+                client: "Creative Studio",
+                role: "Motion Graphic Designer"
+            }
         };
 
         function openProject(projectId) {
