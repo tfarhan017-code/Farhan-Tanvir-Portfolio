@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farhan Tanvir | Graphic Designer & Video Editor</title>
 
-    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -512,6 +511,50 @@
             margin-top: 7px;
         }
 
+        /* NEW VIDEO PROJECTS STYLES */
+        .section-divider {
+            margin: 70px 0 40px;
+            padding-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%) translateZ(30px);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 243, 255, 0.85);
+            color: #111;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .project:hover .video-play-btn {
+            transform: translate(-50%, -50%) translateZ(30px) scale(1.15);
+            background: #ffffff;
+        }
+
+        .video-duration {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.75);
+            color: #00f3ff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            border: 1px solid rgba(0, 243, 255, 0.4);
+            transform: translateZ(20px);
+        }
+
         /* =========================
            CONTACT SECTION
         ========================= */
@@ -600,7 +643,7 @@
         }
 
         /* =========================
-           PROJECT MODAL
+           PROJECT & VIDEO MODALS
         ========================= */
         .project-modal {
             display: none;
@@ -694,6 +737,34 @@
             color: white;
             font-size: 25px;
             cursor: pointer;
+        }
+
+        /* VIDEO MODAL CONTAINER */
+        .video-modal-content {
+            width: min(900px, 95%);
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+        }
+
+        .video-player-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+        }
+
+        .video-player-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .video-info-bar {
+            padding: 20px 30px;
+            background: var(--dark);
+            color: #fff;
         }
 
         /* =========================
@@ -920,16 +991,13 @@
 
 <body>
 
-    <!-- NEON GLOWING CURSOR ELEMENTS -->
     <div class="cursor-dot"></div>
     <div class="cursor-ring"></div>
 
-    <!-- PARTICLE CANVAS -->
     <canvas id="particle-canvas"></canvas>
 
     <div class="page">
 
-        <!-- NAVBAR -->
         <nav>
             <a class="logo" href="#home">Farhan Tanvir.</a>
             <div class="links">
@@ -944,7 +1012,6 @@
 
         <main id="home">
 
-            <!-- HERO -->
             <section class="hero">
                 <div class="hero-copy">
                     <h1>Graphic Designer<br> & <br>Motion <br> Video Editor.</h1>
@@ -957,7 +1024,6 @@
                     </div>
                 </div>
 
-                <!-- HERO PORTRAIT WITH 3D TILT & NEON EFFECTS -->
                 <div class="hero-portrait tilt-card">
                     <img src="profile.JPG" alt="Farhan Tanvir">
                 </div>
@@ -978,7 +1044,6 @@
                 </div>
             </section>
 
-            <!-- ABOUT -->
             <section class="about" id="about">
                 <div>
                     <p class="kicker">About Me</p>
@@ -990,7 +1055,6 @@ Passionate Graphic Designer & Motion Video Editor.<br><br> I create clean, moder
                 </p>
             </section>
 
-            <!-- SKILLS -->
             <section class="skills-section" id="skills">
                 <p class="kicker">My Toolkit</p>
                 <h2>Tools I Use</h2>
@@ -1003,7 +1067,6 @@ Passionate Graphic Designer & Motion Video Editor.<br><br> I create clean, moder
                 </div>
             </section>
 
-            <!-- SERVICES -->
             <section id="services">
                 <div class="section-head">
                     <div>
@@ -1040,11 +1103,10 @@ Passionate Graphic Designer & Motion Video Editor.<br><br> I create clean, moder
                 </div>
             </section>
 
-            <!-- FEATURED PROJECTS -->
             <section class="portfolio" id="work">
                 <div>
                     <p class="kicker">Selected Work</p>
-                    <h2>Featured Projects</h2>
+                    <h2>Featured Image Projects</h2>
                 </div>
 
                 <div class="portfolio-grid">
@@ -1096,9 +1158,66 @@ Passionate Graphic Designer & Motion Video Editor.<br><br> I create clean, moder
                         </div>
                     </div>
                 </div>
+
+                <div class="section-divider">
+                    <p class="kicker">Motion Showcase</p>
+                    <h2>Featured 40s Video Showcases</h2>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="project tilt-card" onclick="openVideoModal('video1')">
+                        <img src="video_thumb1.jpg" alt="Cinematic Motion Commercial">
+                        <span class="video-duration">0:40</span>
+                        <div class="video-play-btn">▶</div>
+                        <div class="project-info">
+                            <small>Motion Graphics</small>
+                            <h3>Cinematic Commercial</h3>
+                        </div>
+                    </div>
+
+                    <div class="project tilt-card" onclick="openVideoModal('video2')">
+                        <img src="video_thumb2.jpg" alt="Brand Promo Teaser">
+                        <span class="video-duration">0:40</span>
+                        <div class="video-play-btn">▶</div>
+                        <div class="project-info">
+                            <small>Video Editing</small>
+                            <h3>Brand Promo Teaser</h3>
+                        </div>
+                    </div>
+
+                    <div class="project tilt-card" onclick="openVideoModal('video3')">
+                        <img src="video_thumb3.jpg" alt="Dynamic Social Reel">
+                        <span class="video-duration">0:40</span>
+                        <div class="video-play-btn">▶</div>
+                        <div class="project-info">
+                            <small>Social Media Motion</small>
+                            <h3>Dynamic Social Reel</h3>
+                        </div>
+                    </div>
+
+                    <div class="project tilt-card" onclick="openVideoModal('video4')">
+                        <img src="video_thumb4.jpg" alt="Product 3D Motion Graphic">
+                        <span class="video-duration">0:40</span>
+                        <div class="video-play-btn">▶</div>
+                        <div class="project-info">
+                            <small>3D Animation</small>
+                            <h3>Product Motion Graphic</h3>
+                        </div>
+                    </div>
+
+                    <div class="project tilt-card" onclick="openVideoModal('video5')">
+                        <img src="video_thumb5.jpg" alt="AI Visual Narrative">
+                        <span class="video-duration">0:40</span>
+                        <div class="video-play-btn">▶</div>
+                        <div class="project-info">
+                            <small>AI & Motion Art</small>
+                            <h3>AI Visual Narrative</h3>
+                        </div>
+                    </div>
+                </div>
+
             </section>
 
-            <!-- CONTACT -->
             <section class="contact" id="contact">
                 <p class="kicker">Get In Touch</p>
                 <h2>Let’s turn your vision into something extraordinary.</h2>
@@ -1120,7 +1239,6 @@ Passionate Graphic Designer & Motion Video Editor.<br><br> I create clean, moder
                 </div>
             </section>
 
-            <!-- FOOTER -->
             <footer>
                 <p>&copy; 2026 Farhan Tanvir. All rights reserved.</p>
                 <p>Graphic Designer & Video Editor</p>
@@ -1129,7 +1247,6 @@ Passionate Graphic Designer & Motion Video Editor.<br><br> I create clean, moder
         </main>
     </div>
 
-    <!-- PROJECT MODAL -->
     <div class="project-modal" id="projectModal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeProject()">&times;</button>
@@ -1152,7 +1269,22 @@ Passionate Graphic Designer & Motion Video Editor.<br><br> I create clean, moder
         </div>
     </div>
 
-    <!-- JAVASCRIPT FOR EFFECTS AND MODAL -->
+    <div class="project-modal" id="videoModal">
+        <div class="video-modal-content">
+            <button class="modal-close" onclick="closeVideoModal()">&times;</button>
+            <div class="video-player-container">
+                <video id="videoPlayer" controls controlsList="nodownload">
+                    <source id="videoSource" src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-info-bar">
+                <small id="videoModalCategory" style="color: #00f3ff; text-transform: uppercase;">Category</small>
+                <h3 id="videoModalTitle" style="font-family: 'Manrope', sans-serif; font-size: 24px; margin-top: 5px;">Video Title</h3>
+            </div>
+        </div>
+    </div>
+
     <script>
         /* =========================================================
            1. CUSTOM NEON GLOWING CURSOR
@@ -1298,7 +1430,7 @@ Passionate Graphic Designer & Motion Video Editor.<br><br> I create clean, moder
         });
 
         /* =========================================================
-           4. PORTFOLIO MODAL LOGIC
+           4. PORTFOLIO MODAL LOGIC (IMAGES & VIDEOS)
         ========================================================= */
         const projectsData = {
             project1: {
@@ -1351,6 +1483,34 @@ Passionate Graphic Designer & Motion Video Editor.<br><br> I create clean, moder
             }
         };
 
+        const videoProjectsData = {
+            video1: {
+                title: "Cinematic Commercial",
+                category: "Motion Graphics",
+                videoSrc: "video1.mp4"
+            },
+            video2: {
+                title: "Brand Promo Teaser",
+                category: "Video Editing",
+                videoSrc: "video2.mp4"
+            },
+            video3: {
+                title: "Dynamic Social Reel",
+                category: "Social Media Motion",
+                videoSrc: "video3.mp4"
+            },
+            video4: {
+                title: "Product Motion Graphic",
+                category: "3D Animation",
+                videoSrc: "video4.mp4"
+            },
+            video5: {
+                title: "AI Visual Narrative",
+                category: "AI & Motion Art",
+                videoSrc: "video5.mp4"
+            }
+        };
+
         function openProject(projectId) {
             const project = projectsData[projectId];
             if (!project) return;
@@ -1371,10 +1531,39 @@ Passionate Graphic Designer & Motion Video Editor.<br><br> I create clean, moder
             document.body.style.overflow = 'auto';
         }
 
+        function openVideoModal(videoId) {
+            const videoData = videoProjectsData[videoId];
+            if (!videoData) return;
+
+            const player = document.getElementById('videoPlayer');
+            const source = document.getElementById('videoSource');
+
+            source.src = videoData.videoSrc;
+            player.load();
+            
+            document.getElementById('videoModalCategory').innerText = videoData.category;
+            document.getElementById('videoModalTitle').innerText = videoData.title;
+
+            document.getElementById('videoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            player.play();
+        }
+
+        function closeVideoModal() {
+            const player = document.getElementById('videoPlayer');
+            player.pause();
+            document.getElementById('videoModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
         window.addEventListener('click', function (e) {
             const modal = document.getElementById('projectModal');
+            const videoModal = document.getElementById('videoModal');
             if (e.target === modal) {
                 closeProject();
+            }
+            if (e.target === videoModal) {
+                closeVideoModal();
             }
         });
     </script>
